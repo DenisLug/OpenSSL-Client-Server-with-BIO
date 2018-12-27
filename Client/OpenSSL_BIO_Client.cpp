@@ -73,6 +73,8 @@ void OpenSSL_BIO_Client::writeToSocket() {
 	char buffer[BUFFER_SIZE] = { 0 };
 
 	int msgSize = read(STDIN_FILENO, buffer, sizeof(buffer));
+	buffer[msgSize-1] = '\0';
+
 	if (msgSize > 0) {
 		// Note: No need to do BIO_write(readBIO) before, SSL_write takes
 		// buffer with unencrypted data directly.
