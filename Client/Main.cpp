@@ -8,18 +8,19 @@
 #include <stdio.h>
 #include "OpenSSL_BIO_Client.h"
 
-int main(int argc, char **argv) {
-	OpenSSL_BIO_Client client;
+int main(int argc, char **argv)
+{
+    OpenSSL_BIO_Client client;
 
-	client.createSocket();
-	client.initOpenSSL();
+    client.createSocket();
+    client.initOpenSSL();
 
-	client.connectToServer(8000);
+    client.connectToServer(8000);
 
-	while (1) {
-		client.writeToSocket();
-	}
+    while (1) {
+        client.writeToSocket();
+    }
 
-	client.closeSocket();
-	client.cleanupOpenSSL();
+    client.closeSocket();
+    client.cleanupOpenSSL();
 }
