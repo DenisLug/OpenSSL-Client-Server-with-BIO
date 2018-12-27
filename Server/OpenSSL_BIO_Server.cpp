@@ -33,6 +33,10 @@ void OpenSSL_BIO_Server::createSocket(int port) {
     serverAddress.sin_port = htons(port);
     serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);
 
+    // Allow binding to already used port
+    int optval = 1;
+    setsockopt(serverSocket, SOL_SOCKET, SO_REUSEPORT, &optval, sizeof(optval));
+
     if (bind(serverSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)) < 0) {
 		perror("Unable to bind socket");
 		exit(EXIT_FAILURE);
