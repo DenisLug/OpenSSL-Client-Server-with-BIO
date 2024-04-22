@@ -118,9 +118,6 @@ char* OpenSSL_BIO_Server::readFromSocket()
 
 void OpenSSL_BIO_Server::initOpenSSL()
 {
-    SSL_load_error_strings();
-    OpenSSL_add_ssl_algorithms();
-
     context = createContext();
     configureContext(context);
 
