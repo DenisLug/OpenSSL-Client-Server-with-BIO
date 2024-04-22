@@ -1,6 +1,6 @@
 # ########## Project setup ##########
 PROJECT(Server)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.4.5)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.15)
 
 find_package(OpenSSL)
 
